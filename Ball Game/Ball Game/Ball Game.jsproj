@@ -148,6 +148,7 @@
     <Content Include="scripts\babylon.js" />
     <Content Include="scripts\babylon.max.js" />
     <Content Include="scripts\hand-1.3.8.js" />
+    <Folder Include="bin\" />
     <Folder Include="images\" />
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />
     <Content Include="merges\android\scripts\platformOverrides.js" />

@@ -109,7 +109,7 @@ var createScene = function () {
     // Load the BABYLON 3D engine
     var engine = new BABYLON.Engine(canvas, true);
 
-    BABYLON.SceneLoader.Load("/android_asset/www/Assets/Spaceship/", "spaceship.babylon", engine, function (scene) {
+    BABYLON.SceneLoader.Load(getMediaURL("Assets/Spaceship/"), "spaceship.babylon", engine, function (scene) {
         //attach Camera
         scene.activeCamera = Camera2D(new BABYLON.FreeCamera("camera", new BABYLON.Vector3(600, 200, -7000), scene));
 
@@ -139,7 +139,7 @@ function UrlExists(url) {
 }
 
 function getMediaURL(s) {
-    if (device.platform.toLowerCase() === "android") {
+    if (!blnRipple && device.platform.toLowerCase() === "android") {
         if (UrlExists("/android_asset/www/" + s))
             return "/android_asset/www/" + s;
         else
@@ -147,6 +147,8 @@ function getMediaURL(s) {
     } else
         return s;
 }
+
+var blnRipple = (window.location.href.indexOf('localhost') != -1);
 
 var BallGame;
 (function (BallGame) {

@@ -161,14 +161,16 @@ function UrlExists(url) {
 }
 
 function getMediaURL(s) {
-    //if (device.platform.toLowerCase() === "android") {
-    //    if (UrlExists("/android_asset/www/" + s))
-    //        return "/android_asset/www/" + s;
-    //    else
-    //        return s;
-    //} else
-    return s;
+    if (!blnRipple && device.platform.toLowerCase() === "android") {
+        if (UrlExists("/android_asset/www/" + s))
+            return "/android_asset/www/" + s;
+        else
+            return s;
+    } else
+        return s;
 }
+
+var blnRipple = (window.location.href.indexOf('localhost') != -1);
 
 var BallGame;
 (function (BallGame) {

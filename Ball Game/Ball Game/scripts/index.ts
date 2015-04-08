@@ -1,5 +1,6 @@
 ﻿
 declare var BABYLON: any;
+declare var Device: any;
 
 function Camera2D(FreeCamera) {
     FreeCamera.attachControl = function (element, noPreventDefault) {
@@ -143,7 +144,7 @@ function UrlExists(url: string) {
 }
 
 function getMediaURL(s: string) {
-    if (device.platform.toLowerCase() === "android") {
+    if (!blnRipple && device.platform.toLowerCase() === "android") {
         if (UrlExists("/android_asset/www/" + s))
             return "/android_asset/www/" + s;
         else
@@ -151,6 +152,8 @@ function getMediaURL(s: string) {
     } else
         return s;
 }   
+
+var blnRipple = (window.location.href.indexOf('localhost') != -1);
 
 module BallGame {
     "use strict";

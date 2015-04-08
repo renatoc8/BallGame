@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="Assets\Spaceship\0.png" />
     <Content Include="Assets\Spaceship\Spaceship.babylon" />
+    <Content Include="images\ground3.jpg" />
     <Content Include="index.js" />
     <Content Include="plugins\org.apache.cordova.device\.fetch.json" />
     <Content Include="plugins\org.apache.cordova.device\CONTRIBUTING.md" />
@@ -154,6 +155,7 @@
     <Content Include="scripts\babylon.2.1-alpha.js" />
     <Content Include="scripts\babylon.js" />
     <Content Include="scripts\babylon.max.js" />
+    <Content Include="scripts\BABYLON.Oimo.js" />
     <Content Include="scripts\Babylon\.gitignore" />
     <Content Include="scripts\Babylon\Actions\babylon.action.js" />
     <Content Include="scripts\Babylon\Actions\babylon.actionManager.js" />
@@ -334,6 +336,7 @@
     <Content Include="scripts\Babylon\Tools\babylon.tools.tga.js" />
     <Content Include="scripts\Babylon\Tools\babylon.virtualJoystick.js" />
     <Content Include="scripts\cannon.js" />
+    <Content Include="scripts\createScene.js" />
     <Content Include="scripts\Exporters\3ds Max\BabylonExport.Entities\BabylonAbstractMesh.cs" />
     <Content Include="scripts\Exporters\3ds Max\BabylonExport.Entities\BabylonActions.cs" />
     <Content Include="scripts\Exporters\3ds Max\BabylonExport.Entities\BabylonAnimation.cs" />
@@ -529,6 +532,7 @@
     <Content Include="scripts\hand-1.3.8.js" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\Oimo.js" />
+    <Content Include="scripts\Oimo.rev.js" />
     <Content Include="scripts\platformOverrides.js" />
     <Content Include="scripts\platformOverrides.js.map" />
     <Content Include="scripts\poly2tri.js" />
@@ -667,8 +671,9 @@
     <Content Include="scripts\Tools\MakeIncremental\Program.cs" />
     <Content Include="scripts\Tools\MakeIncremental\Properties\AssemblyInfo.cs" />
     <Content Include="scripts\Tools\Visual Studio Extensions\Babylon.VSIX" />
+    <Content Include="shaders\gradient.fragment.fx" />
+    <Content Include="shaders\gradient.vertex.fx" />
     <Folder Include="bld\" />
-    <Folder Include="images\" />
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />
     <Content Include="merges\android\scripts\platformOverrides.js" />
     <Folder Include="merges\ios\" />

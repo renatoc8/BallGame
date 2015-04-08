@@ -43,10 +43,16 @@
                     offsetX = evt.movementX || evt.mozMovementX || evt.webkitMovementX || evt.msMovementX || 0;
                     offsetY = evt.movementY || evt.mozMovementY || evt.webkitMovementY || evt.msMovementY || 0;
                 }
-                if (offsetY > 0)
+                if (offsetY < 0)
                     offsetY = -Math.abs(offsetY);
                 else
                     offsetY = Math.abs(offsetY);
+
+                if (offsetX > 0)
+                    offsetX = -Math.abs(offsetX);
+                else
+                    offsetX = Math.abs(offsetX);
+
                 _this.position.y += offsetY / _this.angularSensibility;
                 _this.position.x += offsetX / _this.angularSensibility;
                 previousPosition = {
@@ -109,16 +115,32 @@ var createScene = function () {
     // Load the BABYLON 3D engine
     var engine = new BABYLON.Engine(canvas, true);
 
-    BABYLON.SceneLoader.Load(getMediaURL("Assets/Spaceship/"), "spaceship.babylon", engine, function (scene) {
+    var objShip = BABYLON.SceneLoader.Load(getMediaURL("Assets/Spaceship/"), "spaceship.babylon", engine, function (scene) {
         //attach Camera
         scene.activeCamera = Camera2D(new BABYLON.FreeCamera("camera", new BABYLON.Vector3(600, 200, -7000), scene));
 
         //camera.attachControl(canvas);
-        scene.activeCamera.angularSensibility = 1;
+        scene.activeCamera.angularSensibility = 0.2;
 
         scene.activeCamera.attachControl(canvas);
+        scene.enablePhysics(new BABYLON.Vector3(0, -9.81, 0), new BABYLON.CannonJSPlugin());
         scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
+        scene.collisionsEnabled = true;
 
+        scene.activeCamera.checkCollisions = true;
+        scene.activeCamera.applyGravity = true;
+        scene.activeCamera.speed = 1.0;
+
+        //Set the ellipsoid around the camera (e.g. your player's size)
+        scene.activeCamera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
+
+        //var ground = BABYLON.Mesh.CreatePlane("ground", 60.0, scene);
+        //ground.material = new BABYLON.StandardMaterial("groundMat", scene);
+        //ground.material.diffuseColor = new BABYLON.Color3(1, 1, 1);
+        //ground.material.backFaceCulling = false;
+        //ground.position = new BABYLON.Vector3(0, 0, 0);
+        //ground.rotation = new BABYLON.Vector3(Math.PI / 2, 0, 0);
+        //ground.checkCollisions = true;
         // Register a render loop to repeatedly render the scene
         engine.runRenderLoop(function () {
             scene.render();
